@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1b506a;
+}
+
+.logo{
+    color: rgb(256, 256, 256);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+
+nav .nav-links{
+    display: flex;
+    justify-content: space-around;
+    width: 35%;
+    list-style: none;
+}
+
+nav .nav-links li{
+    list-style: none;
+}
+
+nav .nav-links li a{
+    color: rgb(256, 256, 256);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.burger {
+    cursor: pointer;
+    height: 16px;
+    display: none;
+}
+
+.burger .ham-burger, .burger .ham-burger::before, .burger .ham-burger::after{
+    width: 25px;
+    height: 2px;
+    background-color: aliceblue;
+}
+
+.burger .ham-burger::before, .burger .ham-burger::after{
+    content: '';
+    position: absolute;
+}
+
+.burger .ham-burger{
+    position: relative;
+    transition: 0.3s;
+}
+
+.burger .ham-burger::before{
+    top:12px;
+    transition: 0.3s;
+}
+
+.burger .ham-burger::after{
+    top:6px;
+    transition: 0.3s;
+}
+
+.burger.toggle .ham-burger{
+    top:6px;
+    transform: rotate(-45deg);
+    transition: 0.3s;
+}
+
+.burger.toggle .ham-burger::before{
+    top: 0px;
+    transition: 0.3s;
+    transform: rotate(47deg);
+    display: none;
+}
+
+.burger.toggle .ham-burger::after{
+    transform: rotate(88deg);
+    top: 0px;
+    transition: 0.3s;
+}
+
+@media only screen and (max-width:768px){
+    body{
+        overflow-x: hidden;
+    }
+
+    .burger {
+        display: block;
+    }
+    
+    nav .nav-links{
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        height: 90vh;
+        top: 10vh;
+        right: 0;
+        background-color: #1b506a;
+        width:50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    nav .nav-links li{
+        transform: translateX(50px);
+    }
+}
+
+nav .nav-active{
+    transform: translateX(0);   
+}
+
+@keyframes navLinksFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+
+
